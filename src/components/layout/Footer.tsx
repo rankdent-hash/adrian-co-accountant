@@ -9,22 +9,25 @@ export function Footer() {
     <footer className="bg-ink text-paper">
       <div className="container-page grid gap-10 py-16 md:grid-cols-2 lg:grid-cols-4 lg:py-24">
         <div>
-          <p className="font-display text-lg font-semibold">{site.name}</p>
+          {/* Text brand mark, not the logo image — the logo's charcoal
+              lettering has no light-on-dark version and would be invisible
+              on this background. */}
+          <p className="font-display text-lg text-paper">{site.name}</p>
           <p className="mt-3 max-w-xs text-sm text-paper/70">{site.descriptor}</p>
           <div className="mt-6 space-y-2 text-sm text-paper/70">
             <p className="flex items-start gap-2">
-              <Icon name="map-pin" className="mt-0.5 h-4 w-4 shrink-0 text-gold" />
+              <Icon name="map-pin" className="mt-0.5 h-4 w-4 shrink-0 text-paper/50" />
               {site.address.full}
             </p>
             <p className="flex items-center gap-2">
-              <Icon name="phone" className="h-4 w-4 shrink-0 text-gold" />
-              <a href={site.phone.href} className="hover:text-gold">
+              <Icon name="phone" className="h-4 w-4 shrink-0 text-paper/50" />
+              <a href={site.phone.href} className="hover:text-paper">
                 {site.phone.display}
               </a>
             </p>
             <p className="flex items-center gap-2">
-              <Icon name="mail" className="h-4 w-4 shrink-0 text-gold" />
-              <a href={`mailto:${site.email}`} className="hover:text-gold">
+              <Icon name="mail" className="h-4 w-4 shrink-0 text-paper/50" />
+              <a href={`mailto:${site.email}`} className="hover:text-paper">
                 {site.email}
               </a>
             </p>
@@ -57,11 +60,15 @@ function FooterColumn({
 }) {
   return (
     <div>
-      <p className="eyebrow text-gold-light">{title}</p>
+      {/* Not the shared .eyebrow class: that's red, which fails contrast
+          on this dark background (~2:1). */}
+      <p className="font-sans text-eyebrow font-semibold uppercase tracking-widest text-paper/60">
+        {title}
+      </p>
       <ul className="mt-4 space-y-2.5">
         {links.map((link) => (
           <li key={link.href}>
-            <Link href={link.href} className="text-sm text-paper/70 hover:text-gold">
+            <Link href={link.href} className="text-sm text-paper/70 hover:text-paper">
               {link.label}
             </Link>
           </li>

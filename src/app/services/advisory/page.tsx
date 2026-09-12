@@ -35,7 +35,7 @@ export default function AdvisoryPage() {
           <div className="space-y-16">
             {advisorySections.map((sub) => (
               <div key={sub.id} id={sub.id} className="scroll-mt-24 border-t border-line pt-10 first:border-0 first:pt-0">
-                <h2 className="font-display text-h2-mobile font-medium text-ink md:text-h2">{sub.label}</h2>
+                <h2 className="font-display text-h2-mobile font-normal text-ink md:text-h2">{sub.label}</h2>
                 <div className="mt-4 max-w-2xl">
                   <ContentPlaceholder
                     label={`Verbatim copy from the archive's ADVISORY SERVICES section — "${sub.label}" — goes here.`}

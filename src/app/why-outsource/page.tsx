@@ -30,10 +30,10 @@ export default function WhyOutsourcePage() {
         <div className="container-page grid gap-10 md:grid-cols-2">
           {reasons.map((reason) => (
             <div key={reason.title} className="rounded-lg border border-line bg-paper p-7">
-              <span className="flex h-11 w-11 items-center justify-center rounded-md bg-navy text-gold">
+              <span className="flex h-11 w-11 items-center justify-center rounded-md bg-navy text-paper">
                 <Icon name={reason.icon} className="h-5 w-5" />
               </span>
-              <h2 className="mt-5 font-display text-h3 font-medium text-ink">{reason.title}</h2>
+              <h2 className="mt-5 font-sans text-h3-mobile font-semibold text-ink md:text-h3">{reason.title}</h2>
               <div className="mt-3">
                 <ContentPlaceholder label={`Verbatim copy from the archive's WHY OUTSOURCE section — "${reason.title}" — goes here.`} />
               </div>

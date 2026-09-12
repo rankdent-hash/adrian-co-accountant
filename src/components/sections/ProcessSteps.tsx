@@ -9,10 +9,10 @@ export function ProcessSteps({ steps }: { steps: ProcessStep[] }) {
     <ol className="grid gap-8 md:grid-cols-3 md:gap-6">
       {steps.map((step, index) => (
         <li key={step.step} className="relative flex flex-col">
-          <span className="font-display text-3xl font-medium text-gold">
+          <span className="font-display text-3xl font-normal text-gold">
             0{step.step}
           </span>
-          <h3 className="mt-3 font-display text-h3 font-medium text-ink">
+          <h3 className="mt-3 font-sans text-h3-mobile font-semibold text-ink md:text-h3">
             {step.title}
           </h3>
           {step.description && (

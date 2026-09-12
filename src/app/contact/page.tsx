@@ -23,14 +23,14 @@ export default function ContactPage() {
       <section className="py-16 md:py-24">
         <div className="container-page grid gap-14 lg:grid-cols-2">
           <div>
-            <h2 className="font-display text-h3 font-medium text-ink">Send a message</h2>
+            <h2 className="font-sans text-h3-mobile font-semibold text-ink md:text-h3">Send a message</h2>
             <div className="mt-6">
               <ContactForm />
             </div>
           </div>
 
           <div>
-            <h2 className="font-display text-h3 font-medium text-ink">Visit or call us</h2>
+            <h2 className="font-sans text-h3-mobile font-semibold text-ink md:text-h3">Visit or call us</h2>
             <ul className="mt-6 space-y-4 text-sm text-slate">
               <li className="flex items-start gap-3">
                 <Icon name="map-pin" className="mt-0.5 h-5 w-5 shrink-0 text-gold" />

@@ -61,7 +61,7 @@ export function ContactForm() {
   if (status === "success") {
     return (
       <div className="rounded-lg border border-line bg-paper p-8 text-center">
-        <p className="font-display text-h3 font-medium text-ink">Thank you</p>
+        <p className="font-sans text-h3 font-semibold text-ink">Thank you</p>
         <p className="mt-2 text-sm text-slate">
           We&apos;ve received your message and will be in touch shortly.
         </p>
@@ -72,7 +72,7 @@ export function ContactForm() {
   if (status === "not-configured") {
     return (
       <div className="rounded-lg border border-gold/40 bg-gold-light/20 p-8 text-center">
-        <p className="font-display text-h3 font-medium text-ink">
+        <p className="font-sans text-h3 font-semibold text-ink">
           Our online form isn&apos;t connected yet
         </p>
         <p className="mt-2 text-sm text-slate">
@@ -103,7 +103,7 @@ export function ContactForm() {
         <select
           id="topic"
           name="topic"
-          className="w-full rounded-md border border-line bg-paper px-4 py-2.5 text-sm text-charcoal focus-visible:outline-2 focus-visible:outline-gold"
+          className="w-full rounded-md border border-line bg-paper px-4 py-2.5 text-sm text-slate focus-visible:outline-2 focus-visible:outline-gold"
         >
           {helpOptions.map((option) => (
             <option key={option} value={option}>
@@ -123,7 +123,7 @@ export function ContactForm() {
           rows={5}
           aria-invalid={Boolean(errors.message)}
           aria-describedby={errors.message ? "message-error" : undefined}
-          className="w-full rounded-md border border-line bg-paper px-4 py-2.5 text-sm text-charcoal focus-visible:outline-2 focus-visible:outline-gold"
+          className="w-full rounded-md border border-line bg-paper px-4 py-2.5 text-sm text-slate focus-visible:outline-2 focus-visible:outline-gold"
         />
         {errors.message && (
           <p id="message-error" className="mt-1 text-sm text-red-700">
@@ -135,7 +135,7 @@ export function ContactForm() {
       <button
         type="submit"
         disabled={status === "submitting"}
-        className="inline-flex items-center justify-center rounded-md bg-gold px-6 py-3 text-sm font-semibold text-ink transition-colors duration-200 ease-soft hover:bg-gold-light disabled:opacity-60"
+        className="inline-flex items-center justify-center rounded-md bg-gold px-6 py-3 text-btn font-semibold text-paper transition-colors duration-200 ease-soft hover:bg-gold-light disabled:opacity-60"
       >
         {status === "submitting" ? "Sending…" : "Send message"}
       </button>
@@ -177,7 +177,7 @@ function Field({
         type={type}
         aria-invalid={Boolean(error)}
         aria-describedby={error ? `${name}-error` : undefined}
-        className="w-full rounded-md border border-line bg-paper px-4 py-2.5 text-sm text-charcoal focus-visible:outline-2 focus-visible:outline-gold"
+        className="w-full rounded-md border border-line bg-paper px-4 py-2.5 text-sm text-slate focus-visible:outline-2 focus-visible:outline-gold"
       />
       {error && (
         <p id={`${name}-error`} className="mt-1 text-sm text-red-700">

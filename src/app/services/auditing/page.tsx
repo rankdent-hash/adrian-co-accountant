@@ -25,7 +25,7 @@ export default function AuditingPage() {
         <div className="container-page space-y-14">
           {sections.map((heading) => (
             <div key={heading} className="max-w-2xl">
-              <h2 className="font-display text-h3 font-medium text-ink">{heading}</h2>
+              <h2 className="font-sans text-h3-mobile font-semibold text-ink md:text-h3">{heading}</h2>
               <div className="mt-3">
                 <ContentPlaceholder label={`Verbatim copy from the archive's AUDITING section — "${heading}" — goes here.`} />
               </div>

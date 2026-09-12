@@ -10,7 +10,7 @@ export function SectionHeader({
   return (
     <div className={align === "center" ? "mx-auto max-w-2xl text-center" : "max-w-2xl"}>
       <p className="eyebrow">{eyebrow}</p>
-      <h2 className="mt-3 text-balance font-display text-h2-mobile font-medium text-ink md:text-h2">
+      <h2 className="mt-3 text-balance font-display text-h2-mobile font-normal text-ink md:text-h2">
         {title}
       </h2>
     </div>

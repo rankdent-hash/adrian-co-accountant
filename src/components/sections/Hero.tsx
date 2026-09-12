@@ -23,10 +23,10 @@ export function Hero({
       <div className="container-page grid items-center gap-12 py-14 md:py-16 lg:grid-cols-2 lg:py-28">
         <div>
           <p className="eyebrow">{eyebrow}</p>
-          <h1 className="mt-4 text-balance font-display text-h1-mobile font-medium text-ink md:text-h1">
+          <h1 className="mt-4 text-balance font-display text-h1-mobile font-normal text-ink md:text-h1">
             {title}
           </h1>
-          <p className="mt-6 max-w-xl text-body-lg text-slate">{subhead}</p>
+          <p className="mt-6 max-w-xl text-body-mobile text-slate md:text-body">{subhead}</p>
           <div className="mt-8 flex flex-wrap gap-4">
             <Button href={primaryCta.href} variant="primary">
               {primaryCta.label}

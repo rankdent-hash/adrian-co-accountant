@@ -29,11 +29,11 @@ export default function RegulatoryCompliancePage() {
         <div className="container-page grid gap-8 md:grid-cols-2">
           {topics.map((topic) => (
             <div key={topic.title} className="flex gap-4 rounded-lg border border-line bg-paper p-6">
-              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md bg-navy text-gold">
+              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md bg-navy text-paper">
                 <Icon name={topic.icon} className="h-5 w-5" />
               </span>
               <div>
-                <h2 className="font-display text-h3 font-medium text-ink">{topic.title}</h2>
+                <h2 className="font-sans text-h3-mobile font-semibold text-ink md:text-h3">{topic.title}</h2>
                 <div className="mt-2">
                   <ContentPlaceholder label="Verbatim copy from the archive's REGULATORY COMPLIANCE section goes here." />
                 </div>

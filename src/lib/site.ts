@@ -2,6 +2,8 @@
 // Do not add stats, claims, or numbers that aren't already here or confirmed
 // from the content archive — see README "Content TODOs" for open gaps.
 
+import type { IconName } from "@/components/ui/Icon";
+
 export const site = {
   name: "Adrian & Co",
   legalName: "Adrian & Co — Chartered Certified Accountants",
@@ -56,30 +58,40 @@ export const processSteps = [
 export type NavChild = {
   label: string;
   href: string;
+  icon?: IconName;
+  description?: string;
 };
 
 export type NavItem = {
   label: string;
   href: string;
+  icon: IconName;
   children?: NavChild[];
 };
 
 export const serviceHubChildren: NavChild[] = [
-  { label: "Accounting", href: "/services/accounting" },
-  { label: "Payroll", href: "/services/payroll" },
-  { label: "Auditing", href: "/services/auditing" },
-  { label: "Taxation", href: "/services/tax" },
-  { label: "Advisory", href: "/services/advisory" },
-  { label: "Workplace Pensions", href: "/services/pensions" },
+  { label: "Accounting", href: "/services/accounting", icon: "calculator", description: "Bookkeeping, year-end and management accounts" },
+  { label: "Payroll", href: "/services/payroll", icon: "users", description: "End-to-end payroll processing" },
+  { label: "Auditing", href: "/services/auditing", icon: "shield", description: "Statutory audits from a registered ACCA firm" },
+  { label: "Taxation", href: "/services/tax", icon: "file-text", description: "Corporation tax, self assessment, VAT and planning" },
+  { label: "Advisory", href: "/services/advisory", icon: "briefcase", description: "Start-ups, family business, probate, trusts and more" },
+  { label: "Workplace Pensions", href: "/services/pensions", icon: "piggy-bank", description: "Auto-enrolment and pension administration" },
 ];
 
+// NOTE: the owner's real site navigation (adrianco.uk) has not been
+// supplied yet — see README "Content TODOs". "Services" is the only item
+// confirmed to have a real submenu (per the build spec's IA table); the
+// rest render as single mega-menu-capable links until the actual menu
+// structure (and any other items' submenus) is confirmed. Header.tsx
+// renders ANY item with `children` as a mega-menu, so adding more later
+// is a data change here, not a component change.
 export const mainNav: NavItem[] = [
-  { label: "About", href: "/about" },
-  { label: "Why Outsource", href: "/why-outsource" },
-  { label: "Services", href: "/services", children: serviceHubChildren },
-  { label: "Total Back Office", href: "/total-back-office-support" },
-  { label: "FAQs", href: "/faqs" },
-  { label: "Contact", href: "/contact" },
+  { label: "About", href: "/about", icon: "users" },
+  { label: "Why Outsource", href: "/why-outsource", icon: "piggy-bank" },
+  { label: "Services", href: "/services", icon: "briefcase", children: serviceHubChildren },
+  { label: "Back Office", href: "/total-back-office-support", icon: "calculator" },
+  { label: "FAQs", href: "/faqs", icon: "file-text" },
+  { label: "Contact", href: "/contact", icon: "mail" },
 ];
 
 export const footerNav = {
