@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-fraunces: theme("fontFamily.display");
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+body {
+  @apply bg-cream text-charcoal font-sans text-body antialiased;
+}
+
+::selection {
+  @apply bg-gold-light text-ink;
+}
+
+/* Visible focus state for keyboard users, WCAG 2.1 AA */
+:focus-visible {
+  outline: 2px solid theme("colors.gold.DEFAULT");
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+.container-page {
+  @apply mx-auto w-full max-w-content px-gutter-mobile md:px-gutter-desktop;
+}
+
+.eyebrow {
+  @apply font-sans text-eyebrow font-semibold uppercase tracking-widest text-gold;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
