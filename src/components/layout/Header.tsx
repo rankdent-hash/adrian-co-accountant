@@ -179,39 +179,59 @@ function NavEntry({
       {isOpen && (
         <div
           role="menu"
-          className="absolute left-1/2 top-full mt-3 w-[560px] -translate-x-1/2 rounded-lg border border-line bg-paper p-6 shadow-xl"
+          className="absolute left-1/2 top-full mt-3 w-[760px] -translate-x-1/2 rounded-lg border border-line bg-paper p-6 shadow-xl"
         >
-          <div className="grid grid-cols-2 gap-x-8 gap-y-1">
-            {item.children.map((child) => (
-              <Link
-                key={child.href}
-                href={child.href}
-                role="menuitem"
-                onClick={() => setOpenMenu(null)}
-                className="group flex items-start gap-3 rounded-md px-3 py-2.5 transition-colors hover:bg-cream"
-              >
-                <span className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-md bg-navy text-paper">
-                  <Icon name={child.icon ?? "arrow-right"} className="h-5 w-5" />
-                </span>
-                <span>
-                  <span className="block text-sm font-semibold text-ink group-hover:text-gold">
-                    {child.label}
-                  </span>
-                  {child.description && (
-                    <span className="mt-0.5 block text-xs text-slate">{child.description}</span>
-                  )}
-                </span>
-              </Link>
-            ))}
-          </div>
-          <div className="mt-4 border-t border-line pt-4">
-            <Link
-              href={item.href}
-              onClick={() => setOpenMenu(null)}
-              className="text-sm font-semibold text-gold hover:text-gold-light"
-            >
-              View all {item.label.toLowerCase()} →
-            </Link>
+          <div className="grid grid-cols-[1fr_260px] gap-8">
+            <div>
+              <div className="grid grid-cols-2 gap-x-6 gap-y-1">
+                {item.children.map((child) => (
+                  <Link
+                    key={child.href}
+                    href={child.href}
+                    role="menuitem"
+                    onClick={() => setOpenMenu(null)}
+                    className="group flex items-start gap-3 rounded-md px-3 py-2.5 transition-colors hover:bg-cream"
+                  >
+                    <span className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-md bg-navy text-paper">
+                      <Icon name={child.icon ?? "arrow-right"} className="h-5 w-5" />
+                    </span>
+                    <span>
+                      <span className="block text-sm font-semibold text-ink group-hover:text-gold">
+                        {child.label}
+                      </span>
+                      {child.description && (
+                        <span className="mt-0.5 block text-xs text-slate">{child.description}</span>
+                      )}
+                    </span>
+                  </Link>
+                ))}
+              </div>
+              <div className="mt-4 border-t border-line pt-4">
+                <Link
+                  href={item.href}
+                  onClick={() => setOpenMenu(null)}
+                  className="text-sm font-semibold text-gold hover:text-gold-light"
+                >
+                  View all {item.label.toLowerCase()} →
+                </Link>
+              </div>
+            </div>
+
+            {item.megaCta && (
+              <div className="flex flex-col justify-between rounded-lg bg-ink p-5">
+                <div>
+                  <p className="font-display text-base font-normal text-paper">{item.megaCta.title}</p>
+                  <p className="mt-2 text-xs leading-relaxed text-paper/70">{item.megaCta.body}</p>
+                </div>
+                <Link
+                  href="/contact"
+                  onClick={() => setOpenMenu(null)}
+                  className="mt-4 inline-flex items-center justify-center rounded-md bg-gold px-4 py-2.5 text-sm font-semibold text-paper transition-colors duration-200 ease-soft hover:bg-gold-light"
+                >
+                  Book a Free Consultation
+                </Link>
+              </div>
+            )}
           </div>
         </div>
       )}
