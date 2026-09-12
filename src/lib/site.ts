@@ -131,7 +131,8 @@ export const advisoryHubChildren: NavChild[] = [
 //   contained only "Workplace Pensions" (itself) — both are plain links,
 //   since there's only one real page behind each.
 // - Two contact pages existed (/contact-us/, /contact/) — the confirmed
-//   theme-junk one was already cut (see build spec); "Contact" appears once.
+//   theme-junk one was already cut (see build spec); the surviving one is
+//   reached via the header's CTA button, not a nav item (see below).
 // - "Business Start-up and Advise" corrected to "...and Advice".
 export const mainNav: NavItem[] = [
   {
@@ -177,7 +178,6 @@ export const mainNav: NavItem[] = [
     },
   },
   { label: "Pensions", href: "/services/pensions", icon: "piggy-bank" },
-  { label: "Contact", href: "/contact", icon: "mail" },
 ];
 
 export const footerNav = {

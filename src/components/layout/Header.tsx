@@ -46,18 +46,18 @@ export function Header() {
           />
         </Link>
 
-        <nav aria-label="Primary" ref={menuRef} className="hidden items-center gap-4 2xl:flex">
+        <nav aria-label="Primary" ref={menuRef} className="hidden items-center gap-4 xl:flex">
           {mainNav.map((item) => (
             <NavEntry key={item.href} item={item} openMenu={openMenu} setOpenMenu={setOpenMenu} />
           ))}
         </nav>
 
-        <div className="hidden 2xl:block">
+        <div className="hidden xl:block">
           <Link
             href="/contact"
             className="inline-flex items-center justify-center whitespace-nowrap rounded-md bg-gold px-4 py-2.5 text-btn font-semibold text-paper transition-colors duration-200 ease-soft hover:bg-gold-light"
           >
-            Book a Free Consultation
+            Contact Us
           </Link>
         </div>
 
@@ -67,14 +67,14 @@ export function Header() {
           aria-controls="mobile-nav"
           aria-label={mobileOpen ? "Close menu" : "Open menu"}
           onClick={() => setMobileOpen((open) => !open)}
-          className="rounded-md p-2 text-ink 2xl:hidden"
+          className="rounded-md p-2 text-ink xl:hidden"
         >
           <Icon name={mobileOpen ? "close" : "menu"} className="h-6 w-6" />
         </button>
       </div>
 
       {mobileOpen && (
-        <nav id="mobile-nav" aria-label="Primary mobile" className="max-h-[calc(100vh-5rem)] overflow-y-auto border-t border-line bg-paper 2xl:hidden">
+        <nav id="mobile-nav" aria-label="Primary mobile" className="max-h-[calc(100vh-5rem)] overflow-y-auto border-t border-line bg-paper xl:hidden">
           <div className="container-page flex flex-col gap-1 py-4">
             {mainNav.map((item) => (
               <div key={item.href}>
@@ -128,7 +128,7 @@ export function Header() {
               onClick={() => setMobileOpen(false)}
               className="mt-3 inline-flex items-center justify-center rounded-md bg-gold px-5 py-3 text-btn font-semibold text-paper"
             >
-              Book a Free Consultation
+              Contact Us
             </Link>
           </div>
         </nav>
