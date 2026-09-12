@@ -84,9 +84,9 @@ export default function HomePage() {
   return (
     <>
       <Hero
-        eyebrow={site.descriptor}
-        title="Your own accounts office next door"
-        subhead="A confidential, cost effective and valued service — outsourced bookkeeping, accounting, payroll, tax and advisory for sole traders, partnerships and growing SMEs across South London."
+        eyebrow="Chartered Certified Accountants & Statutory Auditors"
+        title="Accountants who run your whole back office"
+        subhead="Bookkeeping, payroll, VAT, year-end and tax — handled end to end, so you can get back to running your business. No fixed packages, no hidden charges, everything filed on time."
       />
       <TrustBar />
 
