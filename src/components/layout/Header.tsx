@@ -46,13 +46,13 @@ export function Header() {
           />
         </Link>
 
-        <nav aria-label="Primary" ref={menuRef} className="hidden items-center gap-3 xl:flex">
+        <nav aria-label="Primary" ref={menuRef} className="hidden items-center gap-4 2xl:flex">
           {mainNav.map((item) => (
             <NavEntry key={item.href} item={item} openMenu={openMenu} setOpenMenu={setOpenMenu} />
           ))}
         </nav>
 
-        <div className="hidden xl:block">
+        <div className="hidden 2xl:block">
           <Link
             href="/contact"
             className="inline-flex items-center justify-center whitespace-nowrap rounded-md bg-gold px-4 py-2.5 text-btn font-semibold text-paper transition-colors duration-200 ease-soft hover:bg-gold-light"
@@ -67,14 +67,14 @@ export function Header() {
           aria-controls="mobile-nav"
           aria-label={mobileOpen ? "Close menu" : "Open menu"}
           onClick={() => setMobileOpen((open) => !open)}
-          className="rounded-md p-2 text-ink xl:hidden"
+          className="rounded-md p-2 text-ink 2xl:hidden"
         >
           <Icon name={mobileOpen ? "close" : "menu"} className="h-6 w-6" />
         </button>
       </div>
 
       {mobileOpen && (
-        <nav id="mobile-nav" aria-label="Primary mobile" className="border-t border-line bg-paper xl:hidden">
+        <nav id="mobile-nav" aria-label="Primary mobile" className="max-h-[calc(100vh-5rem)] overflow-y-auto border-t border-line bg-paper 2xl:hidden">
           <div className="container-page flex flex-col gap-1 py-4">
             {mainNav.map((item) => (
               <div key={item.href}>
@@ -150,9 +150,8 @@ function NavEntry({
     return (
       <Link
         href={item.href}
-        className="flex items-center gap-1 text-nav font-medium text-ink transition-colors hover:text-gold"
+        className="whitespace-nowrap text-nav font-medium text-ink transition-colors hover:text-gold"
       >
-        <Icon name={item.icon} className="h-3.5 w-3.5 text-gold" />
         {item.label}
       </Link>
     );
@@ -167,9 +166,8 @@ function NavEntry({
         aria-expanded={isOpen}
         aria-haspopup="true"
         onClick={() => setOpenMenu(isOpen ? null : item.href)}
-        className="flex items-center gap-1 text-nav font-medium text-ink transition-colors hover:text-gold"
+        className="flex items-center gap-1 whitespace-nowrap text-nav font-medium text-ink transition-colors hover:text-gold"
       >
-        <Icon name={item.icon} className="h-3.5 w-3.5 text-gold" />
         {item.label}
         <Icon
           name="chevron-down"

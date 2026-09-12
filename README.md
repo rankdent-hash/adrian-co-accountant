@@ -38,14 +38,19 @@ Real page copy was migrated verbatim from `Adrian-Co-Website-Content_1.xlsx`
 (38 pages scraped from the live WordPress site's sitemap). No new marketing
 claims, stats, or copy were invented. A handful of items are still open:
 
-- **Main navigation** — the owner's real site menu (adrianco.uk) hasn't been
-  supplied, and this environment cannot reach that domain directly (network
-  policy blocks the fetch). `src/lib/site.ts` → `mainNav` only confirms
-  "Services" as having a real submenu (per the build spec's IA table); the
-  other items are single links pending the actual menu structure.
-  `Header.tsx` renders any nav item with `children` as a mega-menu with
-  icons, so adding the rest is a data change in `site.ts`, not a component
-  rewrite.
+- **Main navigation** — now matches the real site's menu breadth (`src/lib/
+  site.ts` → `mainNav`): About, Services, Accounting, Auditing, Taxation,
+  Advisory, Pensions, Contact — each of Accounting/Taxation/Advisory as its
+  own mega-menu. The real site's own structural bugs were fixed rather than
+  copied: About Us/Contact Us were nested under "Home" (now top-level);
+  Accounting sub-services were duplicated under both "Services" and
+  "Accounting" (now only under "Accounting"); "Auditing" and "Pensions"
+  each had a single child identical to the parent (now plain links); two
+  contact pages existed (the theme-junk `/contact-us/` was already cut);
+  "Business Start-up and Advise" corrected to "...and Advice". The desktop
+  nav switches in at the `2xl` (1536px) breakpoint rather than `xl`, since
+  8 top-level items need the extra room — verified with no overflow down to
+  that width, with the hamburger menu below it.
 - **Tax / Other Taxes & Tax Planning** — the source page's specific rates
   and thresholds (Corporation Tax "20%, reducing to 19% in 2017/18",
   personal allowance "£11,000", SDLT/ATED bands from 2014-2016) are years

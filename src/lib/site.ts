@@ -70,6 +70,8 @@ export type NavItem = {
   megaCta?: { title: string; body: string };
 };
 
+// Kept for the footer's "Services" column, which has room for a flat list
+// regardless of the header's width constraints.
 export const serviceHubChildren: NavChild[] = [
   { label: "Accounting", href: "/services/accounting", icon: "calculator", description: "Bookkeeping, year-end and management accounts" },
   { label: "Payroll", href: "/services/payroll", icon: "users", description: "End-to-end payroll processing" },
@@ -90,17 +92,47 @@ export const aboutHubChildren: NavChild[] = [
   { label: "Resources", href: "/resources", icon: "briefcase", description: "Guidance and useful information" },
 ];
 
+export const accountingHubChildren: NavChild[] = [
+  { label: "Bookkeeping & Accounting", href: "/services/accounting#bookkeeping-and-accounting", icon: "file-text", description: "Day-to-day bookkeeping, tailored to your business" },
+  { label: "Year-End Accounts", href: "/services/accounting#year-end-accounts", icon: "calculator", description: "Filed on time, so you know your tax position early" },
+  { label: "Management Accounts", href: "/services/accounting#management-accounts", icon: "briefcase", description: "Monthly, quarterly or weekly reporting" },
+  { label: "Payroll", href: "/services/payroll", icon: "users", description: "End-to-end payroll processing" },
+];
+
+export const taxationHubChildren: NavChild[] = [
+  { label: "Corporation Tax", href: "/services/tax#corporation-tax", icon: "file-text" },
+  { label: "Self Assessment", href: "/services/tax#self-assessment", icon: "file-text" },
+  { label: "Partnership Returns", href: "/services/tax#partnership-returns", icon: "users" },
+  { label: "VAT Returns", href: "/services/tax#vat", icon: "calculator" },
+  { label: "Tax Investigation Services", href: "/services/tax#tax-investigations", icon: "shield" },
+  { label: "EIS: Enterprise Investment Scheme", href: "/services/tax#eis", icon: "piggy-bank" },
+  { label: "Other Taxes & Tax Planning", href: "/services/tax#other-taxes", icon: "briefcase" },
+];
+
+export const advisoryHubChildren: NavChild[] = [
+  { label: "Business Start-up and Advice", href: "/services/advisory#business-start-up", icon: "briefcase" },
+  { label: "Family Business Advisory", href: "/services/advisory#family-business", icon: "users" },
+  { label: "Probate & Will Services", href: "/services/advisory#probate-wills", icon: "file-text" },
+  { label: "Trusts", href: "/services/advisory#trusts", icon: "shield" },
+  { label: "In-house Training", href: "/services/advisory#in-house-training", icon: "users" },
+  { label: "Mortgage / Finance Health Check", href: "/services/advisory#mortgage", icon: "piggy-bank" },
+  { label: "CIS (Construction Industry Scheme)", href: "/services/advisory#cis", icon: "calculator" },
+];
+
 // Real menu structure confirmed from adrianco.uk, with the owner's own
 // flagged issues fixed rather than ported as-is:
-// - About Us / Contact Us were nested under "Home" — now top-level.
+// - "About Us" / "Contact Us" were nested under "Home" — now top-level
+//   ("About", covering About Us plus the pages that belong with it).
 // - Accounting sub-services appeared under both "Services" and a separate
-//   "Accounting" menu — consolidated into the one Services mega-menu.
+//   "Accounting" menu — that duplication is dropped; "Services" is now a
+//   single overview link, and "Accounting" is the one mega-menu for its
+//   sub-pages.
+// - "Auditing" contained a duplicate "Auditing" child, and "Pensions"
+//   contained only "Workplace Pensions" (itself) — both are plain links,
+//   since there's only one real page behind each.
 // - Two contact pages existed (/contact-us/, /contact/) — the confirmed
-//   theme-junk one was already cut (see build spec).
-// - Payroll/Auditing/Taxation/Advisory/Pensions were scattered as their
-//   own top-level entries — grouped as Services mega-menu columns instead,
-//   which avoids a 10-item header that wouldn't fit any reasonable
-//   desktop width and matches the consolidated IA already built.
+//   theme-junk one was already cut (see build spec); "Contact" appears once.
+// - "Business Start-up and Advise" corrected to "...and Advice".
 export const mainNav: NavItem[] = [
   {
     label: "About",
@@ -112,16 +144,39 @@ export const mainNav: NavItem[] = [
       body: "Confidential, cost effective and valued service — talk to us about how outsourcing could work for your business.",
     },
   },
+  { label: "Services", href: "/services", icon: "briefcase" },
   {
-    label: "Services",
-    href: "/services",
-    icon: "briefcase",
-    children: serviceHubChildren,
+    label: "Accounting",
+    href: "/services/accounting",
+    icon: "calculator",
+    children: accountingHubChildren,
     megaCta: {
-      title: "Not sure where to start?",
-      body: "It depends what you ask us to do — book a free consultation and we'll work out exactly what your business needs.",
+      title: "Your own accounts office",
+      body: "A bookkeeping, accounting and payroll service tailored to your business, from day-to-day entries through to final accounts.",
     },
   },
+  { label: "Auditing", href: "/services/auditing", icon: "shield" },
+  {
+    label: "Taxation",
+    href: "/services/tax",
+    icon: "file-text",
+    children: taxationHubChildren,
+    megaCta: {
+      title: "Talk to us about tax",
+      body: "Careful tax planning means more money retained by you or your business — call us on " + site.phone.display + ".",
+    },
+  },
+  {
+    label: "Advisory",
+    href: "/services/advisory",
+    icon: "briefcase",
+    children: advisoryHubChildren,
+    megaCta: {
+      title: "More than bookkeeping",
+      body: "From business start-up to succession planning, probate and trusts — advice for every stage of a business, and beyond.",
+    },
+  },
+  { label: "Pensions", href: "/services/pensions", icon: "piggy-bank" },
   { label: "Contact", href: "/contact", icon: "mail" },
 ];
 
@@ -136,7 +191,7 @@ export const footerNav = {
   ],
   services: serviceHubChildren,
   advisory: [
-    { label: "Business Start-up", href: "/services/advisory#business-start-up" },
+    { label: "Business Start-up and Advice", href: "/services/advisory#business-start-up" },
     { label: "Family Business Advisory", href: "/services/advisory#family-business" },
     { label: "Probate & Will Services", href: "/services/advisory#probate-wills" },
     { label: "Trusts", href: "/services/advisory#trusts" },
