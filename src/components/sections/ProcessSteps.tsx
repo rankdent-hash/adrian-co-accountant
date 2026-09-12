@@ -1,3 +1,5 @@
+import { Reveal } from "@/components/ui/Reveal";
+
 export type ProcessStep = {
   step: number;
   title: string;
@@ -6,7 +8,7 @@ export type ProcessStep = {
 
 export function ProcessSteps({ steps }: { steps: ProcessStep[] }) {
   return (
-    <ol className="grid gap-8 md:grid-cols-3 md:gap-6">
+    <Reveal as="ol" className="grid gap-8 md:grid-cols-3 md:gap-6">
       {steps.map((step, index) => (
         <li key={step.step} className="relative flex flex-col">
           <span className="font-display text-3xl font-normal text-gold">
@@ -26,6 +28,6 @@ export function ProcessSteps({ steps }: { steps: ProcessStep[] }) {
           )}
         </li>
       ))}
-    </ol>
+    </Reveal>
   );
 }

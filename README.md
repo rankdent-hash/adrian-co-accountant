@@ -34,55 +34,46 @@ npm run lint     # ESLint
 
 ## Content TODOs
 
-This build shipped **before** `adrianco-content-archive.md` (the verbatim
-copy pull from the live site) was available. Per the build brief, no new
-marketing claims, stats, or copy were invented to fill the gap — every page
-that needs real copy has a clearly marked amber **"Content placeholder"**
-box instead. Search the codebase for `ContentPlaceholder` to find every
-instance. Outstanding items:
+Real page copy was migrated verbatim from `Adrian-Co-Website-Content_1.xlsx`
+(38 pages scraped from the live WordPress site's sitemap). No new marketing
+claims, stats, or copy were invented. A handful of items are still open:
 
 - **Main navigation** — the owner's real site menu (adrianco.uk) hasn't been
-  supplied yet, and this environment cannot reach that domain directly
-  (network policy blocks the fetch). `src/lib/site.ts` → `mainNav` only
-  confirms "Services" as having a real submenu (per the build spec's IA
-  table); the other items are single links pending the actual structure.
+  supplied, and this environment cannot reach that domain directly (network
+  policy blocks the fetch). `src/lib/site.ts` → `mainNav` only confirms
+  "Services" as having a real submenu (per the build spec's IA table); the
+  other items are single links pending the actual menu structure.
   `Header.tsx` renders any nav item with `children` as a mega-menu with
   icons, so adding the rest is a data change in `site.ts`, not a component
-  rewrite — paste the real menu (or the content archive) to finish this.
-- **About** — Our Story / Our Approach body copy (archive: ABOUT US, WHY
-  WE'RE DIFFERENT, OUR BACKGROUND).
-- **Why Outsource** — body copy under all 5 reasons (archive: WHY OUTSOURCE).
-- **Total Back Office Support** — overview and key-benefits copy (archive:
-  TOTAL OFFICE SUPPORT).
-- **Regulatory Compliance** — body copy under all 4 topics (archive:
-  REGULATORY COMPLIANCE).
-- **Services / Accounting** — Bookkeeping & Accounting, Year-End Accounts,
-  Management Accounts copy (archive: ACCOUNTING SERVICES, BOOKKEEPING AND
-  ACCOUNTING, YEAR END ACCOUNTS, MANAGEMENT ACCOUNTS).
-- **Services / Payroll** — services + process copy (archive: PAYROLL).
-- **Services / Auditing** — all 4 sections (archive: AUDITING).
-- **Services / Tax** — all 7 sub-sections (archive: CORPORATION TAX, TAX
-  INVESTIGATION SERVICES, TAX RETURNS/SELF ASSESSMENT, VAT RETURNS, OTHER
-  TAXES & TAX PLANNING, EIS, PARTNERSHIP RETURNS).
-- **Services / Advisory** — all 7 sub-sections (archive: ADVISORY SERVICES).
-- **Services / Pensions** — overview copy, and Alicja Chandze's role/contact
-  details (archive: WORKPLACE PENSIONS).
-- **FAQs** — all 25 real Q&As, grouped into the 4 categories (archive:
-  FAQ'S). None have been invented.
-- **Resources / Insights** — open decision per build spec §5.3: launch
-  empty, seed with 1–2 articles, or omit entirely. Not yet decided.
+  rewrite.
+- **Tax / Other Taxes & Tax Planning** — the source page's specific rates
+  and thresholds (Corporation Tax "20%, reducing to 19% in 2017/18",
+  personal allowance "£11,000", SDLT/ATED bands from 2014-2016) are years
+  out of date. The evergreen explanatory text was kept; the stale figures
+  were deliberately dropped rather than republished as current — flagged
+  with a `ContentPlaceholder` on that page. Needs current rates supplied by
+  Adrian & Co before publishing.
+- **FAQs** — the content export only captured the 25 answers, not the
+  original question text (the export didn't reach whatever accordion
+  element held it — two questions survived verbatim and are used as-is).
+  The other question labels in `src/app/faqs/page.tsx` are inferred from
+  the answer content and flagged with a `ContentPlaceholder` — please
+  confirm or correct the exact original wording before launch.
+- **Resources / Insights** — confirmed the old page really was a stale
+  ~2015 list of third-party software links (VT Cashbook, old Dropbox
+  referral, etc.) — kept the build spec's recommendation to launch this as
+  an empty Insights hub rather than port it. Open decision per build spec
+  §5.3: seed with 1–2 articles, or omit entirely for v1.
 - **Testimonials** — known gap per build spec §1: no real testimonials,
-  logos, or case studies exist. None have been added or fabricated.
+  logos, or case studies exist in the source content. None have been added
+  or fabricated.
 - **Contact form** — `src/app/api/contact/route.ts` is a stub. It validates
   input but returns `501 not_configured`; the UI shows a clear fallback
   (call/email) rather than faking a success message. Needs a real email
-  service (e.g. Resend) wired up before launch, per build spec §5.4 —
-  confirm the destination inbox too (`info@adrianco.com` is assumed pending
-  confirmation, see `src/lib/site.ts`).
+  service (e.g. Resend) wired up before launch — confirm the destination
+  inbox too (`info@adrianco.com` is what the source content itself lists).
 - **Imagery** — no office/team photography supplied yet; the hero uses an
-  abstract line-art graphic in the interim. Favicon/app icon is still the
-  Next.js default (the new logo is used in the header; a matching favicon
-  crop hasn't been generated).
+  abstract line-art graphic in the interim.
 
 ## Brand & design system
 

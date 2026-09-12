@@ -1,11 +1,12 @@
 import { Button } from "@/components/ui/Button";
 import { Icon } from "@/components/ui/Icon";
+import { Reveal } from "@/components/ui/Reveal";
 import { ctaLine, site } from "@/lib/site";
 
 export function CtaBanner() {
   return (
     <section className="bg-ink">
-      <div className="container-page flex flex-col items-center gap-6 py-16 text-center lg:py-20">
+      <Reveal className="container-page flex flex-col items-center gap-6 py-16 text-center lg:py-20">
         {/* Plain paper/white text, not red — red-on-charcoal fails WCAG
             contrast (~2:1). Red stays on the button below instead. */}
         <h2 className="max-w-2xl text-balance font-display text-h2-mobile font-normal text-paper md:text-h2">
@@ -30,7 +31,7 @@ export function CtaBanner() {
             {site.email}
           </a>
         </div>
-      </div>
+      </Reveal>
     </section>
   );
 }

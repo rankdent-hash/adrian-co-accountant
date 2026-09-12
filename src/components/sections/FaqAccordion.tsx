@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Icon } from "@/components/ui/Icon";
+import { Reveal } from "@/components/ui/Reveal";
 
 export type Faq = {
   question: string;
@@ -17,14 +18,14 @@ export function FaqAccordion({ categories }: { categories: FaqCategory[] }) {
   return (
     <div className="space-y-12">
       {categories.map((category) => (
-        <div key={category.category}>
+        <Reveal key={category.category}>
           <h3 className="eyebrow mb-4">{category.category}</h3>
           <div className="divide-y divide-line rounded-lg border border-line bg-paper">
             {category.items.map((faq) => (
               <FaqItem key={faq.question} {...faq} />
             ))}
           </div>
-        </div>
+        </Reveal>
       ))}
     </div>
   );

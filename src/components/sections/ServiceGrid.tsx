@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Icon, type IconName } from "@/components/ui/Icon";
+import { Reveal } from "@/components/ui/Reveal";
 
 export type ServiceItem = {
   icon: IconName;
@@ -10,11 +11,11 @@ export type ServiceItem = {
 
 export function ServiceGrid({ items }: { items: ServiceItem[] }) {
   return (
-    <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+    <Reveal className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
       {items.map((item) => (
         <ServiceCard key={item.href} {...item} />
       ))}
-    </div>
+    </Reveal>
   );
 }
 
